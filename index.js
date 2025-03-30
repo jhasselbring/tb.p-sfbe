@@ -35,7 +35,7 @@ function processDirectory(currentPath, relativePath = '') {
             processDirectory(fullPath, relativeToTarget);
         } else {
             // Get file extension (default to 'no-extension' if none exists)
-            const ext = path.extname(entry.name).slice(1) || 'no-extension';
+            const ext = (path.extname(entry.name).slice(1) || 'no-extension').toLowerCase();
             
             // Create the destination directory structure
             const destDir = path.join(resultDir, ext, path.dirname(relativeToTarget));
